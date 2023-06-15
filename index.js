@@ -9,7 +9,7 @@ app.use(express.static(path.join(__dirname,'public')));
 app.use(express.urlencoded({extended:true}));
 
 
-app.get('/home',(req,res)=>{
+app.get('/',(req,res)=>{
     res.render('index.ejs');
 });
 //FUNCTION FOR SEPERATING AM_PM AND TIME
