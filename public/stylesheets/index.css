@@ -1,0 +1,27 @@
+#body{
+
+    background: #EDF1D6;
+
+}
+
+#heading{
+    text-align: center;
+    font-family: 'Edu NSW ACT Foundation', cursive;
+    font-size: 2rem;
+    font-weight: bold;
+
+}
+
+div{
+    margin: 1rem;
+}
+form{
+    text-align: left;
+    color: #171717;
+    font-family: 'Edu NSW ACT Foundation', cursive; 
+    font-weight: 600;
+    font-size: medium;
+}
+
+
+

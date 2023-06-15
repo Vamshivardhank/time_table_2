@@ -1,11 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Time Table Generator</title>
+        <link rel="stylesheet" href="/stylesheets/index.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Foundation&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
-<body>
-    <h1>Hello World</h1>
+<body id="body">
+        <h1 id="heading">Data for time table </h1>
+        <div id="form_div">
+   
+    
+        <form action="/newtimetable" method="post" >
+                <div>
+                        <label for="name_of_tt" >Name of Time Table</label>
+                        <input type="text"  name="name_of_tt" id="name_of_tt" required> 
+                </div>
+                <div>
+                        <label for="from_time">Available Timings of Day: From</label>
+                        <select name="from_time" id="from_time" onchange="changeHandler()">
+                                <option value="9AM" >9AM</option>
+                                <option value="10AM">10AM</option>
+                                <option value="11AM">11AM</option>
+                                <option value="12AM">12AM</option>
+                        </select>
+                        <label for="to_time">To</label>
+                        <select name="to_time" id="to_time" onchange="changeHandler()">
+                                <option value="2PM">2PM</option>
+                                <option value="3PM">3PM</option>
+                                <option value="4PM">4PM</option>
+                                <option value="5PM">5PM</option>
+                                <option value="6PM">6PM</option>
+                                <option value="7PM">7PM</option>
+                                <option value="8PM">8PM</option>
+                        </select>
+
+                </div>
+                <div>
+                        <label for="except_time_from">Except timmings: From </label>
+                        <select name="except_time_from" id="except_time_from" onchange="changeHandler()">
+                                <option value="9AM" >9AM</option>
+                                <option value="10AM">10AM</option>
+                                <option value="11AM">11AM</option>
+                                <option value="12AM">12AM</option>
+                                <option value="1PM">1PM</option>
+                                <option value="2PM">2PM</option>
+                                <option value="3PM">3PM</option>
+                                <option value="4PM">4PM</option>
+                                <option value="5PM">5PM</option>
+                                <option value="6PM">6PM</option>
+                                <option value="7PM">7PM</option>
+                                <option value="8PM">8PM</option>
+                        </select>
+                        <label for="except_time_to">To</label>
+                        <select name="except_time_to" id="except_time_to" onchange="changeHandler()">
+                                <option value="10AM">10AM</option>
+                                <option value="11AM">11AM</option>
+                                <option value="12AM">12AM</option>
+                                <option value="1PM">1PM</option>
+                                <option value="2PM">2PM</option>
+                                <option value="3PM">3PM</option>
+                                <option value="4PM">4PM</option>
+                                <option value="5PM">5PM</option>
+                                <option value="6PM">6PM</option>
+                                <option value="7PM">7PM</option>
+                                <option value="8PM">8PM</option>
+                        </select>
+
+                </div>
+                <div>
+                        <label for="lunch_time_from">Launch timmings: From </label>
+                        <select name="lunch_time_from" id="lunch_time_from" onchange="changeHandler()">
+                                <option value="12AM">12AM</option>
+                                <option value="1PM">1PM</option>
+                                <option value="2PM">2PM</option>
+                                
+                        </select>
+                        <label for="lunch_time_to">To  </label>
+                        <select name="lunch_time_to" id="lunch_time_to" onchange="changeHandler()">
+                                <option value="1PM">1PM</option>
+                                <option value="2PM">2PM</option>
+                                <option value="3PM">3PM</option>
+                        </select>
+                </div>
+                <div>
+                        <label for="no_of_sub">Number of subjects</label>
+                        <select name="no_of_sub" id="no_of_sub" onchange="numOfSub()">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                        </select>
+                </div>
+                <div id="nameOfSub">
+
+                </div>
+                <div id="favSub">
+
+                </div>
+                <div>
+                        <button class="btn btn-success btn-sm">Submit</button>
+                </div>
+
+                
+        </form>
+ 
+
+</div>
+
+
+<script src="/javascript/index.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
+
 </html>
